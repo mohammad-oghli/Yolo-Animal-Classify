@@ -1,0 +1,15 @@
+# requirements.txt for replit cloud production 
+
+# pull CPU‑only PyTorch from its special index
+--index-url https://download.pytorch.org/whl/cpu
+
+# fall back to PyPI for everything else
+--extra-index-url https://pypi.org/simple
+
+# actual packages
+torch
+torchvision
+torchaudio
+ultralytics[core]
+streamlit
+
