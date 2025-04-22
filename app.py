@@ -9,7 +9,7 @@ def st_ui():
     '''
     st.title("Animal Classification")
     st.caption("Image Recognition")
-    st.info("Yolo Model Implementation by Oghli")
+    st.info("YOLO Model Implementation by Oghli")
     # hint = st.empty()
     # with hint.container():
     #     st.write("### The model detects vehicles and classify it according to:")
@@ -25,13 +25,13 @@ def st_ui():
     example = st.image(example_image)
     if example:
         placeholder = st.empty()
-        de_btn = placeholder.button('Classify', key='1')
+        de_btn = placeholder.button('CLASSIFY', key='1')
     if uploaded_image:
         placeholder.empty()
         example.empty()
         # hint.empty()
         st.image(uploaded_image)
-        de_btn = st.button("Classify")
+        de_btn = st.button("CLASSIFY")
         s_msg = st.sidebar.success("Image uploaded successfully")
 
     if de_btn:
@@ -49,7 +49,7 @@ def st_ui():
             st.image(detection_image)
             st.subheader("Classification Result")
             st.success(f"#### Name: {name}")
-            st.success(f"#### confidence: {conf * 100:.2f}%")
+            st.success(f"#### Confidence: {conf * 100:.2f}%")
             # byte_detect_img = pil_to_bytes(detection_image)
             # st.download_button(label="Download Result", data=byte_super_img,
             #                    file_name="detect_image.jpeg", mime="image/jpeg")
