@@ -20,15 +20,15 @@ def detection_model(image_src):
     detect_img = load_image(image_src)
     detect_results = detect_model(detect_img)[0]
     name, confidence = classify_model(detect_img, loaded=True)
-    for box in detect_results.boxes:
-        x1, y1, x2, y2 = map(int, box.xyxy[0])  # Bounding box coordinates
-        conf = confidence
-        cls = name
-        label = f'{cls} {conf:.2f}'
-        # Draw rectangle and label
-        cv2.rectangle(detect_img, (x1, y1), (x2, y2), (0, 255, 0), 3)
-        cv2.putText(detect_img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 
-                    1, (0, 255, 0), 2)
+    box = detect_results.boxes[0]
+    x1, y1, x2, y2 = map(int, box.xyxy[0])  # Bounding box coordinates
+    conf = confidence
+    cls = name
+    label = f'{cls} {conf:.2f}'
+    # Draw rectangle and label
+    cv2.rectangle(detect_img, (x1, y1), (x2, y2), (0, 255, 0), 3)
+    cv2.putText(detect_img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 
+                1, (0, 255, 0), 2)
     return detect_img, name, confidence
         
 
